@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Library Demo</title>
-    <script src="example.js"></script>
-  </head>
-  <body>
-    <h1>My Library Demo</h1>
-    <p>This is a demo page for my JavaScript library.</p>
-  </body>
-</html>
+// Define a namespace for your library to avoid conflicts with other code
+var MyLibrary = MyLibrary || {};
+
+// Define a function that displays a message on the page
+MyLibrary.showMessage = function(message) {
+  var el = document.createElement('div');
+  el.innerHTML = message;
+  document.body.appendChild(el);
+};
