@@ -15,10 +15,11 @@
       function handleQueryResponse(response) {
         var data = response.getDataTable();
         var options = {
-          title: 'My Chart',
+          title: 'NVC 교회개척 지원현황',
           width: 600,
           height: 400
         };
+        console.log(data);
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
