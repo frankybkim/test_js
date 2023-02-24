@@ -17,8 +17,8 @@
       console.log(data);
       var options = {
         chartType: 'ColumnChart',
-        title: 'Sales by Year',
-        subtitle: '2018-2021',
+        title: 'NVC 교회개척현황',
+        subtitle: '2023',
         hAxis: {
           title: 'Church'
         },
@@ -26,7 +26,7 @@
           title: 'Support No'
         }
       };
-      optons.subtitle = today;
+      options.subtitle = String(today);
       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
       chart.draw(data, options);
     }
