@@ -16,10 +16,10 @@
         var data = response.getDataTable();
         var options = {
           title: 'My Chart',
-          width: 400,
-          height: 300
+          width: 600,
+          height: 400
         };
-        var chart = new google.visualization.arrayToDataTable(document.getElementById('chart_div'));
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
     </script>
