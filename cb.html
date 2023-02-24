@@ -26,7 +26,7 @@
           title: 'Support No'
         }
       };
-      options.subtitle = String(today);
+      options.title = options.title + "(" + String(today) +")";
       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
       chart.draw(data, options);
     }
