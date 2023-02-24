@@ -14,6 +14,8 @@
     function handleQueryResponse(response) {
       var data = response.getDataTable();
       var today = new Date();
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
       console.log(data);
       var options = {
         chartType: 'ColumnChart',
@@ -26,7 +28,8 @@
           title: 'Support No'
         }
       };
-      options.title = options.title + "(" + String(today) +")";
+      options.title = options.title + "(" + String(yyyy) + "/" + mm + ")";
+
       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
       chart.draw(data, options);
     }
