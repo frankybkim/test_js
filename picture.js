@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Display Image Example</title>
-  </head>
-  <body>
-    <img id="myImage" src="" alt="My Image">
-    <button onclick="displayImage()">Display Image</button>
+// Define a namespace for your library to avoid conflicts with other code
+var MyLibrary = MyLibrary || {};
 
-    <script>
-      function displayImage() {
+// Define a function that displays a message on the page
+MyLibrary.showPicture = function() {
         var img = document.getElementById("myImage");
         img.src = "https://static.boredpanda.com/blog/wp-content/uploads/2014/01/animal-children-photography-elena-shumilova-2.jpg";
-      }
-    </script>
-  </body>
-</html>
+};
