@@ -14,15 +14,12 @@
 
       function handleQueryResponse(response) {
         var data = response.getDataTable();
-        var date = new Date();
         var options = {
            chart: {
               title: 'NVC 교회개척 현황',
            },
            legend: { position: 'none' }
         };
-        options.subtitle = date;
-        console.log(date);
         var chart = new google.charts.Bar(document.getElementById('chart_div'));
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
