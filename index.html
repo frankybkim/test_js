@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Display Image Example</title>
+    <title>Display Image Example using Fancybox</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
   </head>
   <body>
-    <img id="myImage" src="https://static.boredpanda.com/blog/wp-content/uploads/2014/01/animal-children-photography-elena-shumilova-2.jpg" alt="My Image">
-    <button onclick="displayImage()">Display Image</button>
+    <a data-fancybox="gallery" href="https://example.com/myimage.jpg">
+      <img src="https://static.boredpanda.com/blog/wp-content/uploads/2014/01/animal-children-photography-elena-shumilova-2.jpg" alt="My Image" />
+    </a>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script>
-      function displayImage() {
-        var img = document.getElementById("myImage");
-        img.src = "https://static.boredpanda.com/blog/wp-content/uploads/2014/01/animal-children-photography-elena-shumilova-2.jpg";
-      }
+      $(document).ready(function() {
+        $('[data-fancybox]').fancybox();
+      });
     </script>
   </body>
 </html>
