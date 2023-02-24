@@ -4,7 +4,7 @@
     <title>Google Spreadsheet Chart Example</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':[ㅠㅁㄱ']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
@@ -15,13 +15,15 @@
       function handleQueryResponse(response) {
         var data = response.getDataTable();
         var options = {
-          title: 'NVC 교회개척 지원현황',
-          width: 600,
-          height: 400
+           chart: {
+           title: 'NVC 교회개척 현황',
+           subtitle: '2023'
+           },
+           legend: { position: 'none' }
         };
         console.log(data);
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
   </head>
