@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Spreadsheet Milestone Chart Example</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="visualization"></div>
+    <script type="text/javascript">
+      var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1OB9FeP25l5S76VtLsioSQK6rwjNV-wEyqkgsJLm4dGc/edit#gid=0';
+      var milestones = [];
+
+      function init() {
+        Tabletop.init({
+          key: publicSpreadsheetUrl,
+          callback: function(data, tabletop) {
+            for (var i = 0; i < data.length; i++) {
+              var row = data[i];
+              if (row.hasOwnProperty("Start") && row.hasOwnProperty("End")) {
+                milestones.push({
+                  id: row["id"],
+                  content: row["Milestone"],
+                  start: row["Start"],
+                  end: row["End"]
+                });
+              }
+            }
+            drawChart();
+          },
+          simpleSheet: true
+        });
+      }
+
+      function drawChart() {
+        var container = document.getElementById('visualization');
+        var options = {
+          orientation: 'top',
+          format: {
+            minorLabels: {
+              minute: 'h:mma',
+              hour: 'ha'
+            },
+            majorLabels: {
+              day: 'MMM D'
+            }
+          }
+        };
+        var timeline = new vis.Timeline(container, milestones, options);
+      }
+
+      $(document).ready(function() {
+        init();
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+  </body>
+</html>
